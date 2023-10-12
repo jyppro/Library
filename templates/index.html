@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>도서관리 시스템</title>
+</head>
+<body>
+    <h1>도서관리 시스템</h1>
+
+    <h2>멤버 정보</h2>
+    <ul>
+        {% for member_id, member_name in members.items() %}
+            <li>{{ member_id }}: {{ member_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>책 상태 정보</h2>
+    <ul>
+        {% for book_id, book_info in books.items() %}
+            <li>{{ book_id }}: {{ book_info['title'] }} - 상태: {{ book_info['status'] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>멤버 추가</h2>
+    <form method="post" action="/add_member">
+        <label for="member_id">멤버 ID:</label>
+        <input type="text" name="member_id" required>
+        <label for="member_name">멤버 이름:</label>
+        <input type="text" name="member_name" required>
+        <button type="submit">멤버 추가</button>
+    </form>
+
+    <h2>멤버 삭제</h2>
+    <form method="post" action="/remove_member">
+        <label for="member_id">멤버 ID:</label>
+        <input type="text" name="member_id" required>
+        <button type="submit">멤버 삭제</button>
+    </form>
+
+    <h2>책 추가</h2>
+    <form method="post" action="/add_book">
+        <label for="book_id">책 ID:</label>
+        <input type="text" name="book_id" required>
+        <label for="book_title">책 제목:</label>
+        <input type="text" name="book_title" required>
+        <button type="submit">책 추가</button>
+    </form>
+
+    <h2>책 삭제</h2>
+    <form method="post" action="/remove_book">
+        <label for="book_id">책 ID:</label>
+        <input type="text" name="book_id" required>
+        <button type="submit">책 삭제</button>
+    </form>
+
+    <h2>책 대출</h2>
+    <form method="post" action="/borrow_book">
+        <label for="book_id">책 ID:</label>
+        <input type="text" name="book_id" required>
+        <button type="submit">책 대출</button>
+    </form>
+
+    <h2>책 반납</h2>
+    <form method="post" action="/return_book">
+        <label for="book_id">책 ID:</label>
+        <input type="text" name="book_id" required>
+        <button type="submit">책 반납</button>
+    </form>
+</body>
+</html>
