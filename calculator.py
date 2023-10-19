@@ -1,5 +1,6 @@
 # 간단한 계산기 함수
-def calculator():
+# This is calculator
+def calculator(): 
     try:
         # 사용자로부터 숫자 입력
         num1 = float(input("첫 번째 숫자를 입력하세요: "))
